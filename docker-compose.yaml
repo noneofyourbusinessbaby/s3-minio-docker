@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  minio:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: minio
+    env_file:
+      - .env
+    volumes:
+      - minio_data:/data
+    ports:
+      - 9001:9001
+      - 9000:9000
+
+volumes:
+  minio_data:
